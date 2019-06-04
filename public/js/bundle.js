@@ -3852,6 +3852,17 @@ eval("__webpack_require__(/*! ../modules/web.timers */ \"./node_modules/core-js/
 
 /***/ }),
 
+/***/ "./node_modules/os-browserify/browser.js":
+/*!***********************************************!*\
+  !*** ./node_modules/os-browserify/browser.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("exports.endianness = function () { return 'LE' };\n\nexports.hostname = function () {\n    if (typeof location !== 'undefined') {\n        return location.hostname\n    }\n    else return '';\n};\n\nexports.loadavg = function () { return [] };\n\nexports.uptime = function () { return 0 };\n\nexports.freemem = function () {\n    return Number.MAX_VALUE;\n};\n\nexports.totalmem = function () {\n    return Number.MAX_VALUE;\n};\n\nexports.cpus = function () { return [] };\n\nexports.type = function () { return 'Browser' };\n\nexports.release = function () {\n    if (typeof navigator !== 'undefined') {\n        return navigator.appVersion;\n    }\n    return '';\n};\n\nexports.networkInterfaces\n= exports.getNetworkInterfaces\n= function () { return {} };\n\nexports.arch = function () { return 'javascript' };\n\nexports.platform = function () { return 'browser' };\n\nexports.tmpdir = exports.tmpDir = function () {\n    return '/tmp';\n};\n\nexports.EOL = '\\n';\n\nexports.homedir = function () {\n\treturn '/'\n};\n\n\n//# sourceURL=webpack:///./node_modules/os-browserify/browser.js?");
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -3874,6 +3885,18 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 
 /***/ }),
 
+/***/ "./src/appconstant.js":
+/*!****************************!*\
+  !*** ./src/appconstant.js ***!
+  \****************************/
+/*! exports provided: hardware, elements */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"hardware\", function() { return hardware; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"elements\", function() { return elements; });\nvar hardware = {\n  lap: 'laptop',\n  pc: 'pc',\n  keyboard: 'kb',\n  mouse: 'm',\n  motherboard: 'mb'\n};\nvar elements = {\n  productlist: document.querySelector(\".product__list\")\n};\n\n//# sourceURL=webpack:///./src/appconstant.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -3882,7 +3905,7 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _models_Hardware__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models/Hardware */ \"./src/models/Hardware.js\");\n\n\nvar hardwareControl = function hardwareControl() {\n  _models_Hardware__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getData(\"lap\");\n};\n\nhardwareControl();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _models_Hardware__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models/Hardware */ \"./src/models/Hardware.js\");\n/* harmony import */ var _appconstant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./appconstant */ \"./src/appconstant.js\");\n/* harmony import */ var _views_hardwareview__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/hardwareview */ \"./src/views/hardwareview.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\n\n\nvar state = {};\n\nvar hardwareControl =\n/*#__PURE__*/\nfunction () {\n  var _ref = _asyncToGenerator(\n  /*#__PURE__*/\n  regeneratorRuntime.mark(function _callee() {\n    var hardware;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            hardware = new _models_Hardware__WEBPACK_IMPORTED_MODULE_0__[\"default\"](_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"hardware\"].lap);\n            _context.next = 3;\n            return hardware.getData();\n\n          case 3:\n            _views_hardwareview__WEBPACK_IMPORTED_MODULE_2__[\"clearList\"]();\n            _views_hardwareview__WEBPACK_IMPORTED_MODULE_2__[\"renderProducts\"](hardware.data);\n            state.hardware_data = hardware.data;\n\n          case 6:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee);\n  }));\n\n  return function hardwareControl() {\n    return _ref.apply(this, arguments);\n  };\n}();\n\nhardwareControl();\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -3894,7 +3917,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Hardware; });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\nvar Hardware =\n/*#__PURE__*/\nfunction () {\n  function Hardware() {\n    _classCallCheck(this, Hardware);\n\n    this.items = [];\n  }\n\n  _createClass(Hardware, [{\n    key: \"getData\",\n    value: function getData(type) {\n      if (type === 'lap') {\n        console.log(\"getData from server\");\n        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(\"http://localhost:2000/api/lap\").then(function (response) {\n          console.log(response);\n        })[\"catch\"](function (reason) {\n          console.log(reason);\n        });\n      }\n    }\n  }]);\n\n  return Hardware;\n}();\n\n\n\n//# sourceURL=webpack:///./src/models/Hardware.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Hardware; });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _appconstant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../appconstant */ \"./src/appconstant.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\n\nvar Hardware =\n/*#__PURE__*/\nfunction () {\n  function Hardware(type) {\n    _classCallCheck(this, Hardware);\n\n    this.type = type;\n  }\n\n  _createClass(Hardware, [{\n    key: \"getData\",\n    value: function () {\n      var _getData = _asyncToGenerator(\n      /*#__PURE__*/\n      regeneratorRuntime.mark(function _callee() {\n        var resp;\n        return regeneratorRuntime.wrap(function _callee$(_context) {\n          while (1) {\n            switch (_context.prev = _context.next) {\n              case 0:\n                if (!(this.type === _appconstant__WEBPACK_IMPORTED_MODULE_1__[\"hardware\"].lap)) {\n                  _context.next = 11;\n                  break;\n                }\n\n                _context.prev = 1;\n                _context.next = 4;\n                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(\"http://localhost:2000/api/lap\");\n\n              case 4:\n                resp = _context.sent;\n                this.data = resp.data;\n                _context.next = 11;\n                break;\n\n              case 8:\n                _context.prev = 8;\n                _context.t0 = _context[\"catch\"](1);\n                console.log(_context.t0);\n\n              case 11:\n              case \"end\":\n                return _context.stop();\n            }\n          }\n        }, _callee, this, [[1, 8]]);\n      }));\n\n      function getData() {\n        return _getData.apply(this, arguments);\n      }\n\n      return getData;\n    }()\n  }]);\n\n  return Hardware;\n}();\n\n\n\n//# sourceURL=webpack:///./src/models/Hardware.js?");
+
+/***/ }),
+
+/***/ "./src/views/hardwareview.js":
+/*!***********************************!*\
+  !*** ./src/views/hardwareview.js ***!
+  \***********************************/
+/*! exports provided: renderProducts, clearList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"renderProducts\", function() { return renderProducts; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"clearList\", function() { return clearList; });\n/* harmony import */ var _appconstant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../appconstant */ \"./src/appconstant.js\");\n/* harmony import */ var os__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! os */ \"./node_modules/os-browserify/browser.js\");\n/* harmony import */ var os__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(os__WEBPACK_IMPORTED_MODULE_1__);\n\n\nvar renderProducts = function renderProducts(data) {\n  data.forEach(function (d) {\n    renderProduct(d);\n  });\n};\nvar clearList = function clearList() {\n  _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elements\"].productlist.innerHTML = '';\n};\n\nvar renderProduct = function renderProduct(hardware) {\n  var markup = \"\\n        <li>\\n            <input type=\\\"hidden\\\" value=\\\"\".concat(hardware.id, \"\\\">\\n            <div class=\\\"productName\\\">\\n                <h1>\").concat(hardware.productName, \"</h1>\\n            </div>\\n        </li>\\n    \");\n  _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elements\"].productlist.insertAdjacentHTML('beforebegin', markup);\n};\n\n//# sourceURL=webpack:///./src/views/hardwareview.js?");
 
 /***/ }),
 
