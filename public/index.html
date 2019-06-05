@@ -5,25 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Application</title>
+    <title>Hardware Store</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <h1>Hardware Store</h1>
+    <nav class="nav-main">
+        <header>
+            <div class="container">
+                <div class="nav-container">
+                    <div class="branding">
+                        <h1>Hardware Store</h1>
+                    </div>
+                    <div class="nav-menu">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li class="nav-menu_sub">
+                                <a href="#">Shopping</a>
+                                <div class="nav-menu_sub_li">
+                                    <ul>
+                                        <li><a href="#">PCs</a></li>
+                                        <li><a href="#">Miscellenous</a></li>
+                                    </ul>
+                                </div>
+                            </li>
 
-    <ul class="product__list">
-        <li>
-            <input type="hidden" value="id">
-            <div class="productName">
-                <h1>ProductName</h1>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="img"><img src="img/1.jpg" alt="productName"></div>
+        </header>
+    </nav>
+    <main class="container main-container">
+        <section class="section-home">
 
-        </li>
-    </ul>
-    <footer>
-        All Copyright &copy; Rajen Shrestha 2019
+        </section>
+        <ul class="product__list">
+            <li>
+                <input type="hidden" value="id">
+                <div class="productName">
+                    <h1>ProductName</h1>
+                </div>
+
+            </li>
+        </ul>
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            All Copyright &copy; Rajen Shrestha 2019
+        </div>
     </footer>
 <script type="text/javascript" src="js/bundle.js"></script></body>
 

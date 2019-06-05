@@ -1,12 +1,196 @@
-* {
-    margin: 0;
-    padding: 0;
+/* https://sass-lang.com/guide */
+@import 'default';
+@import 'reset';
+
+@mixin flexCenter ($direction) {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: $direction;
 }
 
-.red {
-    color: red;
+@mixin sectionSetup($bgcolor) {
+    width: 100%;
+    background-color: $bgcolor;
+    height: 100vh;
 }
 
-.white {
-    color: white;
+html {
+    font-family: $font-stack;
+    background-color: $primary-color;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 300;
+    /* we are reducing because we have big fonts */
+    text-transform: uppercase;
+
+}
+
+h2 {
+    letter-spacing: 1px;
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* will display small line under heading */
+h2::after {
+    display: block;
+    height: 2px;
+    background: $footer-bg;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.container {
+    margin: 0 10% 0 10%;
+    height: 100%;
+}
+
+.nav-main {
+
+    height: 101px;
+    background-color: $primary-bg-color;
+    overflow: hidden;
+
+    header {
+        height: 100%;
+    }
+
+    .nav-container {
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: stretch;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+
+        .branding {
+            margin: 45px;
+
+            h1 {
+                color: $a-color;
+            }
+        }
+
+        .nav-menu {
+            text-transform: uppercase;
+            margin: 10px;
+
+            ul {
+                list-style: none;
+            }
+
+            li {
+                display: inline-block;
+                margin-left: 20px;
+                margin-top: 60px;
+            }
+
+            a {
+                display: block;
+                padding: 6px 12px;
+                text-decoration: none;
+                color: $a-color;
+                border-bottom: 2px solid transparent;
+            }
+
+            a:link,
+            a:visited {
+                text-decoration: none;
+            }
+
+            a:active,
+            a:hover {
+                text-decoration: none;
+                color: $secondary-color;
+                border-bottom: 2px solid $footer-bg;
+                transition: border 0.2s;
+            }
+        }
+    }
+
+
+
+    .nav-menu_sub_li {
+        position: absolute;
+        display: none;
+        min-height: 300px;
+        width: 100%;
+        z-index: 1000;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    }
+
+    .nav-menu_show:hover .nav-menu_sub_li {
+        display: block;
+    }
+
+    .nav-menu_sub_li a {
+        color: rgb(94, 57, 57);
+        display: block;
+    }
+
+    .nav-menu_sub_li a:hover {
+        display: block;
+        background-color: bisque;
+    }
+}
+
+
+.main-container {
+    font-weight: 100;
+
+    .section-home {
+        @include sectionSetup(#fff);
+        padding: 100px 0;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("/images/home_bg_image.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+
+        .hero-text {
+            color: $a-color;
+            font-weight: 400;
+            letter-spacing: 1px;
+            word-spacing: 2px;
+            margin-top: 80px;
+        }
+
+        .hero-text h1 {
+            font-size: 180%;
+        }
+
+        .hero-text h1::after {
+            display: block;
+            content: ' ';
+            height: 2px;
+            color: $footer-bg;
+        }
+    }
+
+    .section-product {
+        @include sectionSetup(rgb(236, 202, 109));
+        padding: 80px 0;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+}
+
+.main-footer {
+    background-color: $footer-bg;
+    color: $primary-bg-color;
+    font-weight: 100;
+    font-size: small;
+    font-style: italic;
+    max-height: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }

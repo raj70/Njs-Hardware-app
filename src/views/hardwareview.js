@@ -21,5 +21,5 @@ const renderProduct = (hardware) => {
             </div>
         </li>
     `;
-    appconstant.elements.productlist.insertAdjacentHTML('beforebegin', markup);
+    appconstant.elements.productlist.insertAdjacentHTML('beforeend', markup);
 }
