@@ -23,10 +23,9 @@ html {
 h1,
 h2,
 h3 {
-    font-weight: 300;
+    font-weight: 300 !important;
     /* we are reducing because we have big fonts */
     text-transform: uppercase;
-
 }
 
 h2 {
@@ -48,15 +47,15 @@ h2::after {
     margin-top: 30px;
 }
 
-.container {
+.hw_container {
     margin: 0 10% 0 10%;
     height: 100%;
 }
 
 .nav-main {
 
-    height: 101px;
-    background-color: $primary-bg-color;
+    height: 121px;
+    background-color: $footer-bg; //$primary-bg-color;
     overflow: hidden;
 
     header {
@@ -110,14 +109,12 @@ h2::after {
             a:active,
             a:hover {
                 text-decoration: none;
-                color: $secondary-color;
-                border-bottom: 2px solid $footer-bg;
+                color: $a-color;
+                border-bottom: 2px solid $primary-bg-color;
                 transition: border 0.2s;
             }
         }
     }
-
-
 
     .nav-menu_sub_li {
         position: absolute;
@@ -139,7 +136,7 @@ h2::after {
 
     .nav-menu_sub_li a:hover {
         display: block;
-        background-color: bisque;
+        background-color: rgb(236, 120, 42);
     }
 }
 
@@ -156,6 +153,7 @@ h2::after {
         background-attachment: fixed;
 
         .hero-text {
+            display: block;
             color: $a-color;
             font-weight: 400;
             letter-spacing: 1px;
@@ -172,6 +170,30 @@ h2::after {
             content: ' ';
             height: 2px;
             color: $footer-bg;
+        }
+
+        .home-buttons_holder a {
+            display: inline-block;
+            color: $a-color;
+            background-color: $footer-bg;
+            margin: 5px;
+            border-radius: 14px;
+            border: 2px solid rgb(236, 202, 109);
+            padding: 15px 50px 15px 50px;
+        }
+
+        .home-buttons_holder a,
+        .home-buttons_holder a:active,
+        .home-buttons_holder a:hover {
+            text-decoration: none;
+        }
+
+        .home-buttons_holder a:hover {
+            color: rgb(241, 222, 169);
+            text-decoration: none;
+            border: 2px solid $footer-bg;
+            transition-delay: 5ms;
+            box-shadow: 10px 5px 5px $primary-bg-color;
         }
     }
 

@@ -18,7 +18,9 @@ laptopdatacontroller.get("/lap", (req, res) => {
 });
 
 
-
+/**
+ * get all the data
+ */
 const getdata = () => {
     const row = fs.readFileSync(`${process.cwd()}/server/api/data.json`);
     const laptops = JSON.parse(row);

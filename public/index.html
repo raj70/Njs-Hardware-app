@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hardware Store</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -20,43 +22,81 @@
                     </div>
                     <div class="nav-menu">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li class="nav-menu_sub">
+                            <li><a href="/index.html">Home</a></li>
+                            <li class="nav-menu_show">
                                 <a href="#">Shopping</a>
-                                <div class="nav-menu_sub_li">
-                                    <ul>
-                                        <li><a href="#">PCs</a></li>
-                                        <li><a href="#">Miscellenous</a></li>
-                                    </ul>
-                                </div>
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </div>
         </header>
+        <footer class="nav-menu_sub_li">
+            <div>
+                <ul>
+                    <li><a href="#">PCs</a></li>
+                    <li><a href="#">Miscellenous</a></li>
+                </ul>
+            </div>
+        </footer>
     </nav>
-    <main class="container main-container">
+    <main class="main-container">
         <section class="section-home">
+            <div class="hw_container">
+                <div class="hero-text">
+                    <h1>best hardware store on internet</h1>
+                    <h1>good service and excellent support</h1>
 
-        </section>
-        <ul class="product__list">
-            <li>
-                <input type="hidden" value="id">
-                <div class="productName">
-                    <h1>ProductName</h1>
+                    <div class="home-buttons_holder">
+                        <a href="#">Shopping</a>
+                        <a href="/Login.html">Login</a>
+                    </div>
                 </div>
+            </div>
+            <div>
+                <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
+                    href="https://unsplash.com/@lemonzandtea?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+                    target="_blank" rel="noopener noreferrer"
+                    title="Download free do whatever you want high-resolution photos from Aleksandar Cvetanovic"><span
+                        style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                            style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                            viewBox="0 0 32 32">
+                            <title>unsplash-logo</title>
+                            <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+                        </svg></span><span style="display:inline-block;padding:2px 3px">Aleksandar
+                        Cvetanovic</span></a>
+            </div>
+        </section>
+        <section class="section-product">
+            <div class="hw_container">
+                <ul class="product__list">
+                    <li>
+                        <input type="hidden" value="id">
+                        <div class="productName">
+                            <h1>ProductName</h1>
+                        </div>
 
-            </li>
-        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
     <footer class="main-footer">
         <div class="container">
             All Copyright &copy; Rajen Shrestha 2019
         </div>
     </footer>
-<script type="text/javascript" src="js/bundle.js"></script></body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/polyfill.bundle.js"></script><script type="text/javascript" src="js/index.bundle.js"></script></body>
+
 
 
 </html>

@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "service": "concurrently \"webpack\" \"nodemon --exec babel-node server/service.js --ignore dist\" ",
-    "start": "concurrently \"webpack\" \"nodemon --exec babel-node server/service.js --ignore dist\" \"webpack-dev-server --mode development --open\"  "
+    "service": "concurrently \"webpack\" \"nodemon --exec babel-node server/service.js --ignore public\" ",
+    "start": "concurrently \"webpack\" \"nodemon --exec babel-node server/service.js --ignore public\" \"webpack-dev-server --mode development --open\"  "
   },
   "author": "rajen.shrestha@outlook.com",
   "license": "ISC",
