@@ -1,18 +1,27 @@
 import express from 'express';
-import laptopcontroller from './api/controllers/laptopcontroller';
+
+import {
+    setEnvironment
+} from './config/env';
+import {
+    connectDb
+} from './config/db';
+
+import {
+    setApiControllers
+} from './config/routers';
+
+
 
 const server = express();
 
-//https://enable-cors.org/server_expressjs.html
-server.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+setEnvironment(server);
+connectDb(server);
+setApiControllers(server);
 
-server.use('/api', laptopcontroller);
 
 server.get("/", (req, res) => {
+    console.log(process.env.NODE_ENV);
     res.send("not in service");
     console.log("serving is requested");
 });

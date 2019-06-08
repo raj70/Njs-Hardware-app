@@ -2,6 +2,8 @@
 @import 'default';
 @import 'reset';
 
+$sub-menu-height: 50px;
+
 @mixin flexCenter ($direction) {
     display: flex;
     justify-content: left;
@@ -72,7 +74,7 @@ h2::after {
 
 
         .branding {
-            margin: 45px;
+            margin-top: 45px;
 
             h1 {
                 color: $a-color;
@@ -116,27 +118,41 @@ h2::after {
         }
     }
 
-    .nav-menu_sub_li {
-        position: absolute;
-        display: none;
-        min-height: 300px;
-        width: 100%;
-        z-index: 1000;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+
+    #nav-menu-show-div:hover+.nav-menu_sub_li {
+        //+ #menu-sub
+        display: block;
+        background-color: rgba(231, 212, 212, 0.808)
     }
 
-    .nav-menu_show:hover .nav-menu_sub_li {
+    .nav-menu_sub_li {
+        position: absolute;
         display: block;
+        min-height: $sub-menu-height;
+        width: 100%;
+        z-index: 9999;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7));
+    }
+
+    .nav-menu_sub_li li {
+        display: inline-block;
+        text-decoration: none;
     }
 
     .nav-menu_sub_li a {
-        color: rgb(94, 57, 57);
+        color: $footer-bg;
         display: block;
+        margin: $sub-menu-height - 25px;
     }
 
+    .nav-menu_sub_li li:hover {
+        display: inline-block;
+        background-color: $sub-menu-bg;
+    }
+
+    .nav-menu_sub_li a:active,
     .nav-menu_sub_li a:hover {
-        display: block;
-        background-color: rgb(236, 120, 42);
+        text-decoration: none;
     }
 }
 

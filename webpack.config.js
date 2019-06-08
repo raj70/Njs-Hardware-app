@@ -2,11 +2,33 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = {
+const serverConfig = {
+    target: 'node',
+    entry: ['@babel/polyfill', './server/service.js'],
+    output: {
+        path: path.resolve(__dirname, 'public'),
+        filename: 'js/lib.bundle.js'
+    },
+    mode: 'development',
+    devServer: {
+        contentBase: './public',
+        port: 3300
+    },
+    module: {
+        rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: "babel-loader"
+        }]
+    }
+};
+
+const clientConfig = {
     entry: {
         polyfill: '@babel/polyfill',
         index: './src/scripts/index.js',
-        login: './src/scripts/login.js'
+        login: './src/scripts/login.js',
+        register: './src/scripts/register.js'
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -29,6 +51,12 @@ module.exports = {
             filename: 'login.html',
             template: './src/auths/login.html',
             chunks: ['polyfill', 'login']
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Register',
+            filename: 'register.html',
+            template: './src/auths/register.html',
+            chunks: ['polyfill', 'register']
         }),
         new MiniCssExtractPlugin({
             filename: this.mode === 'development' ? '[name].css' : '[name].[hash].css',
@@ -75,7 +103,9 @@ module.exports = {
             ]
         }]
     }
-};
+}
+
+module.exports = [clientConfig /*, serverConfig*/ ];
 
 /**
  * I like this 

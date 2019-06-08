@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="nav-main">
+        <header>
+            <div class="hw_container">
+                <div class="nav-container">
+                    <div class="branding">
+                        <h1>Hardware Store</h1>
+                    </div>
+                    <div class="nav-menu">
+                        <ul>
+                            <li><a href="/index.html">Home</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </nav>
+    <main class="main-container">
+        <section class="section-home">
+            <div class="hw_container">
+                <h2>Register</h2>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Password</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2"
+                            placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control" required>
+                                <option selected>Choose...</option>
+                                <option>NSW</option>
+                                <option>QLD</option>
+                                <option>SA</option>
+                                <option>Tas</option>
+                                <option>Vic</option>
+                                <option>WA</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputPostCode">Postcode</label>
+                            <input type="text" class="form-control" id="inputPostCode" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCountry">Country</label>
+                        <input type="text" class="form-control" id="inputCountry" placeholder="Country" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <div class="hw_container">
+            All Copyright &copy; Rajen Shrestha 2019
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/polyfill.bundle.js"></script><script type="text/javascript" src="js/register.bundle.js"></script></body>
+
+</html>
