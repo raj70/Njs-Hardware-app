@@ -232,3 +232,21 @@ h2::after {
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+.login-detail {
+    position: absolute;
+    right: 10%
+}
+
+.login-detail a,
+.login-detail a:hover,
+.login-detail a:visited {
+    text-decoration: none;
+}
+
+.login-detail div {
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 3px 5px 5px rgb(63, 63, 63);
+}

@@ -1,6 +1,6 @@
 import {
     http
-} from '../HttpUtility';
+} from '../httpUtility';
 
 export default class Register {
     constructor(email,

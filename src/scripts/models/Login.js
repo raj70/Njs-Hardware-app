@@ -1,4 +1,7 @@
 import axios from 'axios';
+import {
+    http
+} from '../httpUtility';
 
 export default class Login {
     constructor(username, password) {
@@ -8,12 +11,12 @@ export default class Login {
 
     async login() {
         try {
-            const resp = await axios.post("http://localhost:2000/api/auth", {
-                user: this.username,
-                pword: this.password
+            const resp = await http().post("auth", {
+                email: this.username,
+                password: this.password
             });
             this.data = resp.data;
-            console.log(this.data);
+
         } catch (error) {
             console.log(error);
         }

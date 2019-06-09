@@ -28,3 +28,9 @@ export const elments_register = {
     country: document.querySelector("#inputCountry"),
     submit: document.querySelector("button[type='submit']"),
 }
+
+export const elements_loginDetail = {
+    email: document.querySelector("#email"),
+    logout: document.querySelector("#logout"),
+    login: document.querySelector("#login")
+}

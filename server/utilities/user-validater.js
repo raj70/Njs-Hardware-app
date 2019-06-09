@@ -7,7 +7,7 @@ export const validate = function (body) {
         errors += "Email is required";
     }
     if (s.isBlank(body.password)) {
-        errors += "Password is required";
+        errors += " Password is required";
     }
 
     return {

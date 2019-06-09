@@ -13,7 +13,7 @@ authenticateController.post("/auth", (req, res) => {
             message: val.message
         });
     }
-    const login = new LoginModel(req.body.user, req.body.pword);
+    const login = new LoginModel(req.body.email, req.body.password);
     const isValid = login.login(res);
 });
 

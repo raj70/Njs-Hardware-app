@@ -1,4 +1,7 @@
 import DbUserModel from '../models/db-userModel';
+import {
+    generateToken
+} from '../../utilities/token-helper';
 
 export default class LoginModel {
     constructor(username, password) {
@@ -14,7 +17,9 @@ export default class LoginModel {
                 return res.status(500).json();
             }
             if (!user) {
-                return res.status(401).json();
+                return res.status(401).json({
+                    message: "user not found"
+                });
             }
 
             const passwordMatch = DbUserModel.passwordMatches(this.password, user.password);
@@ -23,9 +28,8 @@ export default class LoginModel {
                     message: "username or password does not match"
                 });
             } else {
-                return res.status(200).json({
-                    message: "success"
-                });
+                const token = generateToken(user);
+                return res.status(200).json(token);
             }
         })
     }
