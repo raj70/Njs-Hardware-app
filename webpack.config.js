@@ -4,6 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const serverConfig = {
     target: 'node',
+    node: {
+        fs: 'empty'
+    },
     entry: ['@babel/polyfill', './server/service.js'],
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -28,7 +31,8 @@ const clientConfig = {
         polyfill: '@babel/polyfill',
         index: './src/scripts/index.js',
         login: './src/scripts/login.js',
-        register: './src/scripts/register.js'
+        register: './src/scripts/register.js',
+        hardware: './src/scripts/hardware_index.js'
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -57,6 +61,12 @@ const clientConfig = {
             filename: 'register.html',
             template: './src/auths/register.html',
             chunks: ['polyfill', 'register']
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Hardware',
+            filename: 'hardwareRegister.html',
+            template: './src/shopping/hardwareRegister.html',
+            chunks: ['polyfill', 'hardware']
         }),
         new MiniCssExtractPlugin({
             filename: this.mode === 'development' ? '[name].css' : '[name].[hash].css',

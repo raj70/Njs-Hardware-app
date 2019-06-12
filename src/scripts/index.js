@@ -19,18 +19,6 @@ appconstant.elements_loginDetail.logout.addEventListener("click", e => {
     setAuthDetails(state);
 })
 
-function getAuth() {
-    let isLoggedIn = authUtility.isLoggedIn();
-    if (isLoggedIn) {
-        isLoggedIn = authUtility.isExpire();
-        state.isLoggedIn = isLoggedIn;
-        if (isLoggedIn) {
-            state.username = authUtility.getUsername();
-            state.id = authUtility.getUserId();
-        }
-    }
-}
-
 const hardwareControl = async () => {
     const hardware = new Hardware(appconstant.hardware.lap);
     await hardware.getData();

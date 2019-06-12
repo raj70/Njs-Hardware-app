@@ -1,4 +1,7 @@
 import axios from 'axios';
+import {
+    http
+} from '../httpUtility';
 import * as appconstant from '../appconstant';
 
 export default class Hardware {
@@ -9,8 +12,9 @@ export default class Hardware {
     async getData() {
         if (this.type === appconstant.hardware.lap) {
             try {
-                const resp = await axios.get("http://localhost:2000/api/lap");
+                const resp = await http().get('/computers');
                 this.data = resp.data;
+                console.log(this.data);
             } catch (error) {
                 console.log(error);
             }

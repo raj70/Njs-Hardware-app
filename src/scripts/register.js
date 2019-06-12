@@ -1,5 +1,4 @@
 import * as registerView from './views/registerView';
-import Register from './models/Register';
 import * as appconstant from './appconstant';
 
 import {

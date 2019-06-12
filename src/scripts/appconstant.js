@@ -34,3 +34,16 @@ export const elements_loginDetail = {
     logout: document.querySelector("#logout"),
     login: document.querySelector("#login")
 }
+
+export const elments_hardware = {
+    productName: document.querySelector("#inputProductName"),
+    cpu: document.querySelector("#inputCpu"),
+    memory: document.querySelector("#inputRam"),
+    storage: document.querySelector("#inputStorage"),
+    file: document.querySelector("#inputFile"),
+    screenSize: document.querySelector("#inputScreen"),
+    price: document.querySelector("#inputPrice"),
+    description: document.querySelector("#inputDescription"),
+    submit: document.querySelector("button[type='submit']"),
+    form: document.querySelector("#formHardwareData")
+}

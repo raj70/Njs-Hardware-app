@@ -4,9 +4,11 @@ import {
 } from 'os';
 
 export const renderProducts = (data) => {
-    data.forEach(d => {
-        renderProduct(d);
-    });
+    if (data) {
+        data.forEach(d => {
+            renderProduct(d);
+        });
+    }
 }
 
 export const clearList = () => {

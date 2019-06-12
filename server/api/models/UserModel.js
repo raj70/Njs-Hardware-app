@@ -33,7 +33,6 @@ export default class UserModel {
 
         await register.save(error => {
             if (error) {
-                console.log(error);
                 if (error.code === 11000) {
                     /* 11000 means user taken */
                     return res.status(403).json({
