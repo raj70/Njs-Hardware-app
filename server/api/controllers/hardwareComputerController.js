@@ -48,9 +48,7 @@ hardwareComputerController.post("/computer", async (req, res) => {
         return;
     }
     const file = req.body.file;
-    const data = await fs.readFileSync(file.path, {
-        encoding: 'utf-8'
-    });
+    const data = await fs.readFileSync(file.path);
 
     const computer = {
         productName: req.body.productName,

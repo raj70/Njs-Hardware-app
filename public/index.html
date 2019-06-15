@@ -10,6 +10,115 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .card {
+            background: white;
+            box-shadow: 0 3rem 6rem 1rem rgba(0, 0, 0, 0.25);
+        }
+
+        .card__hero {
+            position: relative;
+        }
+
+        .card__hero::before {
+            content: '';
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to right bottom, #7776da, #76b4ee);
+            opacity: .3;
+        }
+
+        .card__img {
+            width: 100%;
+            display: block;
+        }
+
+        .card__name {
+            background: linear-gradient(to right, #7776da, #76b4ee);
+            padding: 1.3rem .8rem;
+            font-family: "Bungee Inline", sans-serif;
+            font-weight: 400;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 2rem;
+            text-align: center;
+            word-spacing: 1px;
+        }
+
+        .card__detail {
+            font-size: 1.6rem;
+            padding: 1.5rem 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card__detail:first-of-type {
+            border-bottom: 1px solid #eee;
+        }
+
+        .card__footer {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        .card__price {
+            flex: 0 0 50%;
+            background-color: #eee;
+            border-top: 1px solid #e1e1e1;
+            padding: 1.25rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .card__link:link,
+        .card__link:visited {
+            flex: 0 0 50%;
+            background-color: #76b4ee;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .3s;
+        }
+
+        .card__link:hover,
+        .card__link:active {
+            background-color: #7776da;
+        }
+
+        .emoji-left {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .emoji-right {
+            font-size: 2rem;
+            margin-left: 1rem;
+        }
+
+        .shopping_view {
+            display: flex;
+            justify-content: space-around;
+            flex-flow: row;
+            flex-wrap: wrap;
+        }
+
+        .section-product {
+
+            overflow: scroll;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,7 +142,7 @@
                         <ul>
                             <li><a href="/index.html">Home</a></li>
                             <li id="nav-menu-show-div" class="nav-menu_show">
-                                <a href="#">Shopping</a>
+                                <a href="#shopping">Shopping</a>
                             </li>
                         </ul>
                     </div>
@@ -57,7 +166,7 @@
                     <h1>good service and excellent support</h1>
 
                     <div class="home-buttons_holder">
-                        <a href="#">Shopping</a>
+                        <a href="#shopping">Shopping</a>
                         <a href="/Login.html">Login</a>
                     </div>
                 </div>
@@ -76,17 +185,10 @@
                         Cvetanovic</span></a>
             </div>
         </section>
-        <section class="section-product">
+        <section id="shopping" class="section-product">
             <div class="hw_container">
-                <ul class="product__list">
-                    <li>
-                        <input type="hidden" value="id">
-                        <div class="productName">
-                            <h1>ProductName</h1>
-                        </div>
-
-                    </li>
-                </ul>
+                <div class="product__list shopping_view">
+                </div>
             </div>
         </section>
     </main>
@@ -95,9 +197,8 @@
             All Copyright &copy; Rajen Shrestha 2019
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

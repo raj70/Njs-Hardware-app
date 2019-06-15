@@ -18,11 +18,11 @@ export default class HardwareRegister {
 
     async registerComputerFormdata(data) {
         try {
-
+            console.log(data);
             const fileUploadRes = await http().post('/computer_file', data);
-
+            console.log(fileUploadRes);
             if (fileUploadRes.status === 200) {
-                console.log(fileUploadRes);
+
 
                 const computer = {
                     productName: this.productName,

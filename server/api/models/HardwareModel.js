@@ -36,7 +36,6 @@ export default class HardwareModel {
 
         hardwareComputer.image.data = data;
         hardwareComputer.image.contentType = contentType;
-
         await hardwareComputer.save(error => {
             if (error) {
 
