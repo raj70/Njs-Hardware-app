@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {
     http
-} from '../httpUtility';
-import * as appconstant from '../appconstant';
+} from '../../scripts/httpUtility';
+import * as appconstant from '../../scripts/appconstant';
 
 export default class Hardware {
     constructor(type) {

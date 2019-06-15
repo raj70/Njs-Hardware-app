@@ -1,10 +1,10 @@
 import * as hardware_registerView from './views/hardware_registerView';
 import Hardware_Register from './models/Hardware_Register';
-import * as appconstant from './appconstant';
+import * as appconstant from '../scripts/appconstant';
 
 import {
     setAuthDetails
-} from './views/loginDetailView';
+} from '../auths/views/loginDetailView';
 
 const state = {
 

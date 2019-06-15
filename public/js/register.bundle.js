@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/scripts/register.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/auths/register.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2479,6 +2479,66 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 
 /***/ }),
 
+/***/ "./src/auths/authUtility.js":
+/*!**********************************!*\
+  !*** ./src/auths/authUtility.js ***!
+  \**********************************/
+/*! exports provided: storeToken, isLoggedIn, isExpire, logout, getUsername, getUserId */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"storeToken\", function() { return storeToken; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isLoggedIn\", function() { return isLoggedIn; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isExpire\", function() { return isExpire; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"logout\", function() { return logout; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getUsername\", function() { return getUsername; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getUserId\", function() { return getUserId; });\n/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jsonwebtoken */ \"./node_modules/jsonwebtoken/index.js\");\n/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__);\n\nvar TOKEN_NAME = \"hd_token\";\nfunction storeToken(token) {\n  localStorage.setItem(TOKEN_NAME, token);\n}\nfunction isLoggedIn() {\n  var token = localStorage.getItem(TOKEN_NAME);\n  return token !== null;\n}\nfunction isExpire() {\n  var token = decodeToken();\n\n  if (token) {\n    var currentime = Math.floor(Date.now() / 1000);\n    return currentime < token.exp;\n  }\n\n  return false;\n}\nfunction logout() {\n  localStorage.removeItem(TOKEN_NAME);\n}\nfunction getUsername() {\n  var token = decodeToken();\n\n  if (!token) {\n    return null;\n  }\n\n  return token.email;\n}\nfunction getUserId() {\n  var token = decodeToken();\n\n  if (!token) {\n    return null;\n  }\n\n  return token.id;\n}\n\nfunction decodeToken() {\n  var token = getToken();\n\n  if (!token) {\n    return null;\n  }\n\n  return jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default.a.decode(token);\n}\n\nfunction getToken() {\n  var token = localStorage.getItem(TOKEN_NAME);\n  return token;\n}\n\n//# sourceURL=webpack:///./src/auths/authUtility.js?");
+
+/***/ }),
+
+/***/ "./src/auths/models/Register.js":
+/*!**************************************!*\
+  !*** ./src/auths/models/Register.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Register; });\n/* harmony import */ var _scripts_httpUtility__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scripts/httpUtility */ \"./src/scripts/httpUtility.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\nvar Register =\n/*#__PURE__*/\nfunction () {\n  function Register(email, password, address, address2, city, state, postcode, country) {\n    _classCallCheck(this, Register);\n\n    this.email = email;\n    this.password = password;\n    this.address = address;\n    this.address2 = address2;\n    this.city = city;\n    this.state = state;\n    this.postcode = postcode;\n    this.country = country;\n  }\n\n  _createClass(Register, [{\n    key: \"registerUser\",\n    value: function () {\n      var _registerUser = _asyncToGenerator(\n      /*#__PURE__*/\n      regeneratorRuntime.mark(function _callee() {\n        var user, resp;\n        return regeneratorRuntime.wrap(function _callee$(_context) {\n          while (1) {\n            switch (_context.prev = _context.next) {\n              case 0:\n                _context.prev = 0;\n                user = {\n                  email: this.email,\n                  password: this.password,\n                  address: this.address,\n                  address2: this.address2,\n                  city: this.city,\n                  state: this.state,\n                  postcode: this.postcode,\n                  country: this.country\n                };\n                _context.next = 4;\n                return Object(_scripts_httpUtility__WEBPACK_IMPORTED_MODULE_0__[\"http\"])().post(\"register\", user);\n\n              case 4:\n                resp = _context.sent;\n                this.data = resp.data;\n                console.log(this.data);\n                _context.next = 12;\n                break;\n\n              case 9:\n                _context.prev = 9;\n                _context.t0 = _context[\"catch\"](0);\n                console.log(_context.t0);\n\n              case 12:\n              case \"end\":\n                return _context.stop();\n            }\n          }\n        }, _callee, this, [[0, 9]]);\n      }));\n\n      function registerUser() {\n        return _registerUser.apply(this, arguments);\n      }\n\n      return registerUser;\n    }()\n  }]);\n\n  return Register;\n}();\n\n\n\n//# sourceURL=webpack:///./src/auths/models/Register.js?");
+
+/***/ }),
+
+/***/ "./src/auths/register.js":
+/*!*******************************!*\
+  !*** ./src/auths/register.js ***!
+  \*******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _views_registerView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/registerView */ \"./src/auths/views/registerView.js\");\n/* harmony import */ var _scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/appconstant */ \"./src/scripts/appconstant.js\");\n/* harmony import */ var _views_loginDetailView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/loginDetailView */ \"./src/auths/views/loginDetailView.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\n\n\nvar state = {};\nwindow.addEventListener('load', function (w, event) {\n  Object(_views_loginDetailView__WEBPACK_IMPORTED_MODULE_2__[\"setAuthDetails\"])(state);\n});\n_scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].logout.addEventListener(\"click\", function (e) {\n  authUtility.logout();\n  Object(_views_loginDetailView__WEBPACK_IMPORTED_MODULE_2__[\"setAuthDetails\"])(state);\n});\n_scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elments_register\"].submit.addEventListener(\"click\",\n/*#__PURE__*/\nfunction () {\n  var _ref = _asyncToGenerator(\n  /*#__PURE__*/\n  regeneratorRuntime.mark(function _callee(e) {\n    var register;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            e.preventDefault();\n            register = _views_registerView__WEBPACK_IMPORTED_MODULE_0__[\"getFormData\"]();\n            _context.next = 4;\n            return register.registerUser();\n\n          case 4:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee);\n  }));\n\n  return function (_x) {\n    return _ref.apply(this, arguments);\n  };\n}());\n\n//# sourceURL=webpack:///./src/auths/register.js?");
+
+/***/ }),
+
+/***/ "./src/auths/views/loginDetailView.js":
+/*!********************************************!*\
+  !*** ./src/auths/views/loginDetailView.js ***!
+  \********************************************/
+/*! exports provided: setAuthDetails */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setAuthDetails\", function() { return setAuthDetails; });\n/* harmony import */ var _authUtility__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../authUtility */ \"./src/auths/authUtility.js\");\n/* harmony import */ var _scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../scripts/appconstant */ \"./src/scripts/appconstant.js\");\n\n\nfunction setAuthDetails(state) {\n  var isLoggedIn = _authUtility__WEBPACK_IMPORTED_MODULE_0__[\"isLoggedIn\"]();\n\n  if (isLoggedIn) {\n    isLoggedIn = _authUtility__WEBPACK_IMPORTED_MODULE_0__[\"isExpire\"]();\n    state.isLoggedIn = isLoggedIn;\n\n    if (isLoggedIn) {\n      state.username = _authUtility__WEBPACK_IMPORTED_MODULE_0__[\"getUsername\"]();\n      _scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].email.innerHTML = state.username;\n      state.id = _authUtility__WEBPACK_IMPORTED_MODULE_0__[\"getUserId\"]();\n      _scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].login.style.display = \"none\";\n    } else {\n      _scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].logout.style.display = \"none\";\n      _scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].email.innerHTML = \"\";\n    }\n  } else {\n    _scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].logout.style.display = \"none\";\n    _scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].email.innerHTML = \"\";\n    _scripts_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].login.style.display = \"inline-block\";\n  }\n}\n\n//# sourceURL=webpack:///./src/auths/views/loginDetailView.js?");
+
+/***/ }),
+
+/***/ "./src/auths/views/registerView.js":
+/*!*****************************************!*\
+  !*** ./src/auths/views/registerView.js ***!
+  \*****************************************/
+/*! exports provided: getFormData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getFormData\", function() { return getFormData; });\n/* harmony import */ var _scripts_appconstant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scripts/appconstant */ \"./src/scripts/appconstant.js\");\n/* harmony import */ var _models_Register__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/Register */ \"./src/auths/models/Register.js\");\n\n\nvar getFormData = function getFormData() {\n  var email = _scripts_appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].email.value;\n  var password = _scripts_appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].password.value;\n  var address = _scripts_appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].address.value;\n  var address2 = _scripts_appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].address2.value;\n  var city = _scripts_appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].city.value;\n  var state = _scripts_appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].state.value;\n  var postcode = _scripts_appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].postcode.value;\n  var country = _scripts_appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].country.value;\n  var register = new _models_Register__WEBPACK_IMPORTED_MODULE_1__[\"default\"](email, password, address, address2, city, state, postcode, country);\n  return register;\n};\n\n//# sourceURL=webpack:///./src/auths/views/registerView.js?");
+
+/***/ }),
+
 /***/ "./src/scripts/appconstant.js":
 /*!************************************!*\
   !*** ./src/scripts/appconstant.js ***!
@@ -2491,18 +2551,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
-/***/ "./src/scripts/authUtility.js":
-/*!************************************!*\
-  !*** ./src/scripts/authUtility.js ***!
-  \************************************/
-/*! exports provided: storeToken, isLoggedIn, isExpire, logout, getUsername, getUserId */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"storeToken\", function() { return storeToken; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isLoggedIn\", function() { return isLoggedIn; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isExpire\", function() { return isExpire; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"logout\", function() { return logout; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getUsername\", function() { return getUsername; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getUserId\", function() { return getUserId; });\n/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jsonwebtoken */ \"./node_modules/jsonwebtoken/index.js\");\n/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__);\n\nvar TOKEN_NAME = \"hd_token\";\nfunction storeToken(token) {\n  localStorage.setItem(TOKEN_NAME, token);\n}\nfunction isLoggedIn() {\n  var token = localStorage.getItem(TOKEN_NAME);\n  return token !== null;\n}\nfunction isExpire() {\n  var token = decodeToken();\n\n  if (token) {\n    var currentime = Math.floor(Date.now() / 1000);\n    return currentime < token.exp;\n  }\n\n  return false;\n}\nfunction logout() {\n  localStorage.removeItem(TOKEN_NAME);\n}\nfunction getUsername() {\n  var token = decodeToken();\n\n  if (!token) {\n    return null;\n  }\n\n  return token.email;\n}\nfunction getUserId() {\n  var token = decodeToken();\n\n  if (!token) {\n    return null;\n  }\n\n  return token.id;\n}\n\nfunction decodeToken() {\n  var token = getToken();\n\n  if (!token) {\n    return null;\n  }\n\n  return jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default.a.decode(token);\n}\n\nfunction getToken() {\n  var token = localStorage.getItem(TOKEN_NAME);\n  return token;\n}\n\n//# sourceURL=webpack:///./src/scripts/authUtility.js?");
-
-/***/ }),
-
 /***/ "./src/scripts/httpUtility.js":
 /*!************************************!*\
   !*** ./src/scripts/httpUtility.js ***!
@@ -2512,54 +2560,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"http\", function() { return http; });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction http() {\n  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({\n    baseURL: 'http://localhost:2000/api/'\n  });\n}\n\n//# sourceURL=webpack:///./src/scripts/httpUtility.js?");
-
-/***/ }),
-
-/***/ "./src/scripts/models/Register.js":
-/*!****************************************!*\
-  !*** ./src/scripts/models/Register.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Register; });\n/* harmony import */ var _httpUtility__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../httpUtility */ \"./src/scripts/httpUtility.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\nvar Register =\n/*#__PURE__*/\nfunction () {\n  function Register(email, password, address, address2, city, state, postcode, country) {\n    _classCallCheck(this, Register);\n\n    this.email = email;\n    this.password = password;\n    this.address = address;\n    this.address2 = address2;\n    this.city = city;\n    this.state = state;\n    this.postcode = postcode;\n    this.country = country;\n  }\n\n  _createClass(Register, [{\n    key: \"registerUser\",\n    value: function () {\n      var _registerUser = _asyncToGenerator(\n      /*#__PURE__*/\n      regeneratorRuntime.mark(function _callee() {\n        var user, resp;\n        return regeneratorRuntime.wrap(function _callee$(_context) {\n          while (1) {\n            switch (_context.prev = _context.next) {\n              case 0:\n                _context.prev = 0;\n                user = {\n                  email: this.email,\n                  password: this.password,\n                  address: this.address,\n                  address2: this.address2,\n                  city: this.city,\n                  state: this.state,\n                  postcode: this.postcode,\n                  country: this.country\n                };\n                _context.next = 4;\n                return Object(_httpUtility__WEBPACK_IMPORTED_MODULE_0__[\"http\"])().post(\"register\", user);\n\n              case 4:\n                resp = _context.sent;\n                this.data = resp.data;\n                console.log(this.data);\n                _context.next = 12;\n                break;\n\n              case 9:\n                _context.prev = 9;\n                _context.t0 = _context[\"catch\"](0);\n                console.log(_context.t0);\n\n              case 12:\n              case \"end\":\n                return _context.stop();\n            }\n          }\n        }, _callee, this, [[0, 9]]);\n      }));\n\n      function registerUser() {\n        return _registerUser.apply(this, arguments);\n      }\n\n      return registerUser;\n    }()\n  }]);\n\n  return Register;\n}();\n\n\n\n//# sourceURL=webpack:///./src/scripts/models/Register.js?");
-
-/***/ }),
-
-/***/ "./src/scripts/register.js":
-/*!*********************************!*\
-  !*** ./src/scripts/register.js ***!
-  \*********************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _views_registerView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/registerView */ \"./src/scripts/views/registerView.js\");\n/* harmony import */ var _appconstant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./appconstant */ \"./src/scripts/appconstant.js\");\n/* harmony import */ var _views_loginDetailView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/loginDetailView */ \"./src/scripts/views/loginDetailView.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\n\n\nvar state = {};\nwindow.addEventListener('load', function (w, event) {\n  Object(_views_loginDetailView__WEBPACK_IMPORTED_MODULE_2__[\"setAuthDetails\"])(state);\n});\n_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].logout.addEventListener(\"click\", function (e) {\n  authUtility.logout();\n  Object(_views_loginDetailView__WEBPACK_IMPORTED_MODULE_2__[\"setAuthDetails\"])(state);\n});\n_appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elments_register\"].submit.addEventListener(\"click\",\n/*#__PURE__*/\nfunction () {\n  var _ref = _asyncToGenerator(\n  /*#__PURE__*/\n  regeneratorRuntime.mark(function _callee(e) {\n    var register;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            e.preventDefault();\n            register = _views_registerView__WEBPACK_IMPORTED_MODULE_0__[\"getFormData\"]();\n            _context.next = 4;\n            return register.registerUser();\n\n          case 4:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee);\n  }));\n\n  return function (_x) {\n    return _ref.apply(this, arguments);\n  };\n}());\n\n//# sourceURL=webpack:///./src/scripts/register.js?");
-
-/***/ }),
-
-/***/ "./src/scripts/views/loginDetailView.js":
-/*!**********************************************!*\
-  !*** ./src/scripts/views/loginDetailView.js ***!
-  \**********************************************/
-/*! exports provided: setAuthDetails */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setAuthDetails\", function() { return setAuthDetails; });\n/* harmony import */ var _authUtility__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../authUtility */ \"./src/scripts/authUtility.js\");\n/* harmony import */ var _appconstant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../appconstant */ \"./src/scripts/appconstant.js\");\n\n\nfunction setAuthDetails(state) {\n  var isLoggedIn = _authUtility__WEBPACK_IMPORTED_MODULE_0__[\"isLoggedIn\"]();\n\n  if (isLoggedIn) {\n    isLoggedIn = _authUtility__WEBPACK_IMPORTED_MODULE_0__[\"isExpire\"]();\n    state.isLoggedIn = isLoggedIn;\n\n    if (isLoggedIn) {\n      state.username = _authUtility__WEBPACK_IMPORTED_MODULE_0__[\"getUsername\"]();\n      _appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].email.innerHTML = state.username;\n      state.id = _authUtility__WEBPACK_IMPORTED_MODULE_0__[\"getUserId\"]();\n      _appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].login.style.display = \"none\";\n    } else {\n      _appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].logout.style.display = \"none\";\n      _appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].email.innerHTML = \"\";\n    }\n  } else {\n    _appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].logout.style.display = \"none\";\n    _appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].email.innerHTML = \"\";\n    _appconstant__WEBPACK_IMPORTED_MODULE_1__[\"elements_loginDetail\"].login.style.display = \"inline-block\";\n  }\n\n  console.log(state);\n}\n\n//# sourceURL=webpack:///./src/scripts/views/loginDetailView.js?");
-
-/***/ }),
-
-/***/ "./src/scripts/views/registerView.js":
-/*!*******************************************!*\
-  !*** ./src/scripts/views/registerView.js ***!
-  \*******************************************/
-/*! exports provided: getFormData */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getFormData\", function() { return getFormData; });\n/* harmony import */ var _appconstant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../appconstant */ \"./src/scripts/appconstant.js\");\n/* harmony import */ var _models_Register__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/Register */ \"./src/scripts/models/Register.js\");\n\n\nvar getFormData = function getFormData() {\n  var email = _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].email.value;\n  var password = _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].password.value;\n  var address = _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].address.value;\n  var address2 = _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].address2.value;\n  var city = _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].city.value;\n  var state = _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].state.value;\n  var postcode = _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].postcode.value;\n  var country = _appconstant__WEBPACK_IMPORTED_MODULE_0__[\"elments_register\"].country.value;\n  var register = new _models_Register__WEBPACK_IMPORTED_MODULE_1__[\"default\"](email, password, address, address2, city, state, postcode, country);\n  return register;\n};\n\n//# sourceURL=webpack:///./src/scripts/views/registerView.js?");
 
 /***/ }),
 

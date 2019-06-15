@@ -1,8 +1,4 @@
-import * as appconstant from '../appconstant';
-import {
-    http
-} from '../httpUtility';
-
+import * as appconstant from '../../scripts/appconstant';
 
 export const renderProducts = (data) => {
     if (data.data) {

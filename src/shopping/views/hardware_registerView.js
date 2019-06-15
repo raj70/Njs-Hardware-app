@@ -1,4 +1,4 @@
-import * as appconstant from '../appconstant';
+import * as appconstant from '../../scripts/appconstant';
 
 export const getFormData = () => {
     const productName = appconstant.elments_hardware.productName.value;

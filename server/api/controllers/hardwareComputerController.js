@@ -10,7 +10,6 @@ const multer_upload = multer({
 const hardwareComputerController = express.Router();
 
 hardwareComputerController.get("/computers", async (req, res) => {
-    console.log("hi computers api");
     const computers = new HardwareModel();
     await computers.getProducts(res);
 

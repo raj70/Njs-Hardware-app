@@ -1,7 +1,7 @@
 import * as authUtility from '../authUtility';
 import {
     elements_loginDetail
-} from '../appconstant';
+} from '../../scripts/appconstant';
 
 
 export function setAuthDetails(state) {
@@ -23,5 +23,4 @@ export function setAuthDetails(state) {
         elements_loginDetail.email.innerHTML = "";
         elements_loginDetail.login.style.display = "inline-block";
     }
-    console.log(state);
 }

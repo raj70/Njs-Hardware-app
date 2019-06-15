@@ -29,10 +29,10 @@ const serverConfig = {
 const clientConfig = {
     entry: {
         polyfill: '@babel/polyfill',
-        index: './src/scripts/index.js',
-        login: './src/scripts/login.js',
-        register: './src/scripts/register.js',
-        hardware: './src/scripts/hardware_index.js'
+        index: './src/home/index.js',
+        login: './src/auths/login.js',
+        register: './src/auths/register.js',
+        hardware: './src/shopping/hardware_register.js'
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -47,7 +47,7 @@ const clientConfig = {
         new HtmlWebpackPlugin({
             title: 'Hardware Store',
             filename: 'index.html',
-            template: './src/shopping/index.html',
+            template: './src/home/index.html',
             chunks: ['polyfill', 'index']
         }),
         new HtmlWebpackPlugin({

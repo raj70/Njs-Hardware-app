@@ -1,10 +1,10 @@
-import Hardware from './models/Hardware';
-import * as appconstant from './appconstant';
-import * as authUtility from './authUtility';
-import * as hardwareview from './views/hardware_shoppingView';
+import Hardware from '../shopping/models/Hardware';
+import * as appconstant from '../scripts/appconstant';
+import * as authUtility from '../auths/authUtility';
+import * as hardwareview from '../shopping/views/hardware_shoppingView';
 import {
     setAuthDetails
-} from './views/loginDetailView';
+} from '../auths/views/loginDetailView';
 
 const state = {
 

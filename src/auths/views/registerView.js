@@ -1,4 +1,4 @@
-import * as appconstant from '../appconstant';
+import * as appconstant from '../../scripts/appconstant';
 import Register from '../models/Register';
 
 export const getFormData = () => {

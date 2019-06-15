@@ -1,8 +1,7 @@
 import {
     http
-} from '../httpUtility';
+} from '../../scripts/httpUtility';
 
-import * as appconstant from '../appconstant';
 
 export default class HardwareRegister {
     constructor(productName, cpu, memory, storage, file, screensize, price, description) {

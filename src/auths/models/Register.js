@@ -1,6 +1,6 @@
 import {
     http
-} from '../httpUtility';
+} from '../../scripts/httpUtility';
 
 export default class Register {
     constructor(email,

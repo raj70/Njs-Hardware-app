@@ -1,4 +1,4 @@
-import * as appconstant from '../appconstant';
+import * as appconstant from '../../scripts/appconstant';
 
 export const getUserCrendentail = () => {
     var email = appconstant.elments_login.email.value;

@@ -1,5 +1,5 @@
 import * as registerView from './views/registerView';
-import * as appconstant from './appconstant';
+import * as appconstant from '../scripts/appconstant';
 
 import {
     setAuthDetails

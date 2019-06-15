@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {
     http
-} from '../httpUtility';
+} from '../../scripts/httpUtility';
 
 export default class Login {
     constructor(username, password) {
